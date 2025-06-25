@@ -1,0 +1,49 @@
+.navbar {
+    height: 80px;
+    border-bottom: 1px solid #dedede;
+}
+
+.show-login-details {
+    box-shadow: 2px -2px 1px 0px #eee;
+    border: 1px solid #eee;
+}
+
+.display-flex,
+.navbar-menus ul li {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-menus ul li {
+    gap: 10px;
+}
+
+.login-drop-list ul li {
+    justify-content: start !important;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    gap: 10px;
+    color: black;
+
+}
+
+.login-drop-list ul li:hover {
+    background: #eaeff1;
+    border-radius: 0.2rem;
+}
+
+.cart-count {
+    height: 26px;
+    width: 26px;
+    line-height: 28px;
+    position: absolute;
+    top: -15px;
+    left: -14px;
+    background: #03a9f4;
+    color: WHITE;
+    border-radius: 50%;
+    text-align: center;
+}

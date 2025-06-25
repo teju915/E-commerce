@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.display-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.add-remove-btn{
+    border: 1px solid #eee;
+    border-radius: 0.2rem;
+    background-color: black;
+    color: white;
+    width: 125px;
+    padding: 5px;
+}
+.add-remove-btn button{
+    width: 30px;  
+}
+.add-remove-btn input{
+    width: 50px;
+    text-align: center;
+
+}

@@ -1,0 +1,17 @@
+.homepage-slider .slick-prev {
+  left: 30px !important;
+  z-index: 1;
+}
+
+.homepage-slider .slick-next {
+  right: 30px !important;
+}
+
+.homepage-slider .slick-dots li {
+  width: 10px !important;
+}
+
+.homepage-slider .slick-dots {
+  background-color: white;
+  bottom: -29px !important;
+}
