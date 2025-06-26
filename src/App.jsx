@@ -11,13 +11,13 @@ import ProductDetail from './components/Products/ProductDetailPage';
 import CartProvider from './components/context/Context';
 import CartProducts from './components/cart/CartProducts';
 import Login from './components/register/Login';
-import {UserProvider} from './components/context/UserContext';
+import { UserProvider } from './components/context/UserContext';
 
 function App() {
   return (
     <div className='bg-gray-200 min-h-screen'>
-        <CartProvider>
-      <UserProvider>
+        <UserProvider>
+      <CartProvider>
           <Navbar />
           <Routes>
             <Route path="/" element={
@@ -32,9 +32,9 @@ function App() {
             <Route path="/products" element={<AllProducts />} />
             <Route path="/products/:id" element={<ProductDetail />} />
           </Routes>
-      </UserProvider>
-        </CartProvider>
       <Footer />
+      </CartProvider>
+        </UserProvider>
     </div>
   );
 }

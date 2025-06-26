@@ -11,31 +11,41 @@ import { IoCartOutline } from "react-icons/io5";
 import { BiStore } from "react-icons/bi";
 import { Link } from 'react-router-dom';
 import { ContextApp } from '../context/Context';
-import { UserProvider } from '../context/UserContext';
+import { UserProvider, useUser } from '../context/UserContext';
+import { button } from 'framer-motion/client';
+
 
 
 const Navbar = () => {
 
-  
-  
+
   const { cartItems } = useContext(ContextApp);
   const [display, setDisplay] = useState(true)
   console.log(cartItems);
-
+  const { user } = useUser();
   return (
-    
+
     <nav className="navbar flex justify-between items-center p-3 bg-white shadow">
-      
-        <Link to="/">
-          <img style={{ height: '60px' }} src={logo} alt="Logo" />
-        </Link>
-      
+
+      <Link to="/">
+        <img style={{ height: '60px' }} src={logo} alt="Logo" />
+      </Link>
+
       <div className="navbar-menus relative me-10 text-black">
         <ul className='flex flex-row items-center gap-10'>
           <li>
-            <Categories href="/login" ContentSection={CategoriesList}>
-              <CgProfile className='w-6 h-6' /> Login
-            </Categories>
+            {
+              user ? (
+                <Categories href="/login" ContentSection={CategoriesList}>
+                  <CgProfile className='w-6 h-6' /> My Account
+                </Categories>
+              ) : (
+                <Categories href="/login" ContentSection={CategoriesList}>
+                  <CgProfile className='w-6 h-6' /> Login
+                </Categories>
+              )
+            }
+
           </li>
           <li className='flex items-center gap-1 cursor-pointer'>
             <Link to='/cart' className='flex items-center gap-1 cursor-pointer'>
@@ -90,15 +100,31 @@ const Categories = ({ children, href, ContentSection }) => {
 };
 
 const CategoriesList = () => {
+
+  let { user, setUser } = useUser();
+  const handleLogout = (e) => {
+    setUser(null);
+  }
   return (
-   
-    
+
+
     <div className="w-60 bg-white rounded-xl shadow-lg mt-2 login-drop-list">
       <div className="flex justify-between p-3 border-b border-slate-200">
         <h3 className="cursor-pointer text-black">New Customer?</h3>
-        <Link to='/login'>
-        <h3 className="cursor-pointer text-blue-600">Login</h3>
-        </Link>
+        {
+          user ? (
+            <button onClick={(e) => handleLogout(e.target.value)}>
+              <Link to='/login'>
+                <h3 className="cursor-pointer text-blue-600">Logout</h3>
+              </Link>
+            </button>
+          ) : (
+            <Link to='/login'>
+              <h3 className="cursor-pointer text-blue-600">Login</h3>
+            </Link>
+          )
+        }
+
       </div>
       <ul className="p-3 space-y-2 capitalize text-sm">
         <li className="flex items-center gap-2 cursor-pointer"><CgProfile className='w-5 h-5' /> My Profile</li>
@@ -109,7 +135,7 @@ const CategoriesList = () => {
         <li className="flex items-center gap-2 cursor-pointer"><TbGiftCard className='w-5 h-5' /> Gift Cards</li>
       </ul>
     </div>
-    
+
   );
 };
 

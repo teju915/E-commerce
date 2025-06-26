@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { ContextApp } from '../context/Context'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './cart.css'
+import { useUser } from '../context/UserContext'
 
 const CartProducts = () => {
     const navigate = useNavigate();
@@ -29,9 +30,8 @@ const CartProducts = () => {
         setFinalTotal(final);
     }, [cartItems]);
 
-    console.log("Cart Amount:", cartAmt);
-    console.log("Discount %:", discount);
-    console.log("Final Total:", finalTotal);
+    const { user } = useUser();
+
 
 
     const removeProducts = (id) => {
@@ -95,7 +95,22 @@ const CartProducts = () => {
                         <h2 className="leading-7  text-gray-600  mb-4"><span>{finalTotal}</span></h2>
 
                     </div>
-                    <button className="text-white bg-[#03a9f4] border-0 py-2 px-8 focus:outline-none hover:bg-[#03a8f4a2] duration-200 cursor-pointer rounded text-lg" onClick={() => navigate('/')}>Checkout</button>
+                    {
+                        user ? (
+                            <button className="text-white bg-[#03a9f4] border-0 py-2 px-8 focus:outline-none hover:bg-[#03a8f4a2] duration-200 cursor-pointer rounded text-lg" onClick={() => navigate('/')}>Checkout</button>
+                        )
+                            :
+                            (
+                                <>
+                                    <button className="text-white bg-[#82959e] border-0 py-2 px-8 focus:outline-none duration-200 rounded text-lg">Checkout</button>
+                                    <div className='text-center mt-2'>
+                                        <span>Please do login for checkout </span>
+                                        <Link to="/login" className="text-[#03a9f4] cursor-pointer rounded text-md ml-1 underline">Login</Link>
+                                    </div>
+                                </>
+                            )
+                    }
+
                 </div>
             </div>
 

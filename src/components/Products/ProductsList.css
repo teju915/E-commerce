@@ -47,6 +47,9 @@
     margin: 10px;
     box-shadow: 2px 2px 2px 2px #74787a;
   }
+   .individual-product img{
+    height: 110px;
+   }
   .prod-detail{
     flex-direction: column;
   }

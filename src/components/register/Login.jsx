@@ -5,13 +5,13 @@ import { useUser } from '../context/UserContext';
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const { setUser } = useUser();
+    const { user, setUser } = useUser();  // <-- added user
     const [error, setError] = useState('');
-    let navigate = useNavigate();
+    const navigate = useNavigate();
 
     const dummyUser = {
-        name: 'John Doe',
-        email: 'user@example.com',
+        name: 'Tejashwini',
+        email: 'demo@gmail.com',
         password: 'password123'
     };
 
@@ -28,8 +28,8 @@ const Login = () => {
                 name: dummyUser.name,
                 email: dummyUser.email
             });
-
             setError('');
+            navigate('/');  // ✅ only navigate after successful login
         } else {
             setError('Invalid email or password.');
             setUser(null);
@@ -43,15 +43,11 @@ const Login = () => {
 
                 {error && <div className="mb-4 text-red-500 text-sm">{error}</div>}
 
-                {dummyUser ? (
-                    <>
-                        <div className="text-green-600 text-center">
-                            <p><strong>Name:</strong> {dummyUser.name}</p>
-                            <p><strong>Email:</strong> {dummyUser.email}</p>
-                        </div>{
-                            navigate("/")
-                        }
-                    </>
+                {user ? (
+                    <div className="text-center text-green-600">
+                        <p><strong>Name:</strong> {user.name}</p>
+                        <p><strong>Email:</strong> {user.email}</p>
+                    </div>
                 ) : (
                     <form onSubmit={handleLogin} className="space-y-4">
                         <div>
@@ -67,8 +63,8 @@ const Login = () => {
                         <div>
                             <label className="block text-sm font-medium">Password</label>
                             <input
-                                type="password"
-                                className="w-full mt-1 p-2  border border-gray-400 rounded-md outline-[#03a9f4]"
+                                type="current-password"
+                                className="w-full mt-1 p-2 border border-gray-400 rounded-md outline-[#03a9f4]"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                             />

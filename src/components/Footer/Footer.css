@@ -41,12 +41,17 @@
 }
 
 @media (min-width: 320px) and (max-width: 760px) {
-  .footer-section {
-    grid-template-columns: repeat(1, 1fr);
+  /* .footer-section {
+    grid-template-columns: repeat(2, 1fr);
     padding: 40px 20px 0;
     grid-column-gap: 20px;
     -webkit-column-gap: 12px;
     column-gap: 12px;
+  } */
+   .footer-section {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 40px 20px 0;
   }
   .footer-section {
     border: 0;
