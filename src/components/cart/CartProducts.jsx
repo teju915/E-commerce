@@ -6,7 +6,7 @@ import { useUser } from '../context/UserContext'
 
 const CartProducts = () => {
     const navigate = useNavigate();
-    const { cartItems, addToCart, setCartItems } = useContext(ContextApp);
+    const { cartItems, addToCart, setCartItems, removeProducts } = useContext(ContextApp);
 
     const [cartAmt, setCartAmt] = useState(0);
     const [discount, setDiscount] = useState(0);
@@ -34,19 +34,19 @@ const CartProducts = () => {
 
 
 
-    const removeProducts = (id) => {
-        const updateCart = cartItems.map((prod) => {
-            if (prod.id == id && prod.count > 1) {
-                return { ...prod, count: prod.count - 1 }
-            }
-            else if (prod.id == id && prod.count <= 1) {
-                return null;
-            }
-            return prod;
-        })
-        const filterCart = updateCart.filter((product) => product !== null)
-        setCartItems(filterCart)
-    }
+    // const removeProducts = (id) => {
+    //     const updateCart = cartItems.map((prod) => {
+    //         if (prod.id == id && prod.count > 1) {
+    //             return { ...prod, count: prod.count - 1 }
+    //         }
+    //         else if (prod.id == id && prod.count <= 1) {
+    //             return null;
+    //         }
+    //         return prod;
+    //     })
+    //     const filterCart = updateCart.filter((product) => product !== null)
+    //     setCartItems(filterCart)
+    // }
     return (
 
         <section className="container px-5 py-10 mx-auto  text-gray-600 body-font bg-white my-10">
@@ -113,10 +113,7 @@ const CartProducts = () => {
 
                 </div>
             </div>
-
-
         </section>
-
     )
 }
 

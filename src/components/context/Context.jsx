@@ -25,7 +25,19 @@ const Context = (props) => {
             setCartItems([...cartItems, { ...product, count: 1 }])
         }
     }
-    const value = { addToCart, cartItems, setCartItems }
+    const removeProducts = (id) => {
+        setCartItems((prev) => {
+            const existing = prev.find(item => item.id === id);
+            if (existing.count === 1) {
+                return prev.filter(item => item.id !== id);
+            } else {
+                return prev.map(item =>
+                    item.id === id ? { ...item, count: item.count - 1 } : item
+                );
+            }
+        });
+    };
+    const value = { addToCart, cartItems, setCartItems, removeProducts }
     return <ContextApp.Provider value={value}>{props.children}</ContextApp.Provider>
 }
 
