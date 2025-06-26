@@ -77,7 +77,7 @@ const ProductList = () => {
         {groupedProducts.map((group, groupIndex) => (
           <div className="grid grid-cols-2 gap-4 mb-2 w-full border border-gray-200 rounded m-1 p-3" key={groupIndex}>
             {group.map((prod) => (
-              <div className="w-1/2 min-w-[200px] bg-white p-4 rounded shadow" key={prod.id}>
+              <div className="w-1/2 min-w-full bg-white p-4 rounded shadow" key={prod.id}>
                 <Link to={`/products/${prod.id}`} className="block">
                   <img
                     className="object-contain object-center w-24 h-24"
