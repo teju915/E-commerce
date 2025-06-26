@@ -2,15 +2,13 @@ import React, { useContext } from 'react'
 import { useParams } from "react-router-dom";
 import { ContextApp } from '../context/Context'
 import '../../App.css'
+import data from '../../assets/products/product.json'
 
 const Products = () => {
   const { id } = useParams();
 const { addToCart, cartItems } = useContext(ContextApp)
   console.log();
-  let productList = localStorage.getItem("products");
-  let products = productList ? JSON.parse(productList) : [];
-
-
+  let products = data ? data : [];
   let product = products.find((prod) => (prod.id === parseInt(id)))
   return (
     <>
