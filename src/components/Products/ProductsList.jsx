@@ -73,9 +73,9 @@ const ProductList = () => {
             See All <FaArrowRight className='ms-2 w-4 h-4' />
           </Link>
         </div>
-          <div className='grid grid-cols-3'>
+          <div className='grid grid-cols-3 gap-3'>
         {groupedProducts.map((group, groupIndex) => (
-          <div className="grid grid-cols-2 gap-4 mb-12 w-11/12 border border-gray-200 rounded m-1 p-4" key={groupIndex}>
+          <div className="grid grid-cols-2 gap-4 mb-2 w-full border border-gray-200 rounded m-1 p-3" key={groupIndex}>
             {group.map((prod) => (
               <div className="w-1/2 min-w-[200px] bg-white p-4 rounded shadow" key={prod.id}>
                 <Link to={`/products/${prod.id}`} className="block">
