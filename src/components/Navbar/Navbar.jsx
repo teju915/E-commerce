@@ -115,12 +115,12 @@ const CategoriesList = () => {
           user ? (
             <button onClick={(e) => handleLogout(e.target.value)}>
               <Link to='/login'>
-                <h3 className="cursor-pointer text-blue-600">Logout</h3>
+                <h3 className="cursor-pointer text-[#03a9f4]">Logout</h3>
               </Link>
             </button>
           ) : (
             <Link to='/login'>
-              <h3 className="cursor-pointer text-blue-600">Login</h3>
+              <h3 className="cursor-pointer text-[#03a9f4]">Login</h3>
             </Link>
           )
         }
