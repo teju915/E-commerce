@@ -18,13 +18,19 @@ const AllProducts = () => {
     <>
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-10 mx-auto">
-          <div className='flex justify-between mb-10'>
+          <div className='flex justify-between items-center mb-10'>
             <p>{carts.length} Products Available</p>
-            <select name="sort" id="sort" className='sort-selection--style' onChange={(event) => setSort(event.target.value)}>
-              <option value="">Sort By</option>
-              <option value="low">Price(low)</option>
-              <option value="high">Price(high)</option>
-            </select>
+            <div class="relative w-32">
+
+              <select name="sort" id="sort" class="bg-white appearance-none sort-selection--style w-full p-2 outline-none" onChange={(event)=>setSort(event.target.value)}>
+                <option value="">Sort By</option>
+                <option value="low">Price(low)</option>
+                <option value="high">Price(high)</option>
+              </select>
+              <div class="absolute right-2 top-2 pointer-events-none text-gray-500">
+                ▼
+              </div>
+            </div>
           </div>
           <div className="flex flex-wrap -m-4">
             {

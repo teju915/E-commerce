@@ -1,10 +1,10 @@
 .homepage-slider .slick-prev {
-  left: 30px !important;
+  left: 30px;
   z-index: 1;
 }
 
 .homepage-slider .slick-next {
-  right: 30px !important;
+  right: 30px;
 }
 
 .homepage-slider .slick-dots li {
@@ -14,4 +14,23 @@
 .homepage-slider .slick-dots {
   background-color: white;
   bottom: -29px !important;
+}
+
+@media screen and (min-width:320px) and (max-width:760px) {
+  .homepage-slider {
+    margin: 0px;
+  }
+  .homepage-slider img {
+    object-fit: cover;
+    height: 250px;
+  }
+  .homepage-slider .slick-prev {
+    left: 10px !important;
+  }
+  .homepage-slider .slick-next {
+    right: 10px !important;
+  }
+  .product-lists{
+    padding: 15px;
+  }
 }

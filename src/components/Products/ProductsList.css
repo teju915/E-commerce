@@ -27,22 +27,28 @@
 
 .sort-selection--style {
   background-color: white;
-  padding: 5px;
   border-radius: 0.5rem;
-  border: 1px solid #c3b1b1;
+  border: 1px solid #858181;
 }
 
 .product-lists a:hover,.all-products a:hover {
     color: #4599b9 !important;
 }
 
-@media (min-width: 320px) and (max-width: 1191px) {
+@media (min-width: 320px) and (max-width: 768px) {
   .all-products {
-    display: flex !important;
-    overflow: scroll;
-    flex-direction: row;
+    /* display: flex !important;
     flex-wrap: nowrap;
+    flex-direction: row; */
+    overflow: scroll;
     margin: 0 10px;
+  }
+  .individual-product {
+    margin: 10px;
+    box-shadow: 2px 2px 2px 2px #74787a;
+  }
+  .prod-detail{
+    flex-direction: column;
   }
 
 }

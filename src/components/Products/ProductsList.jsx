@@ -42,7 +42,7 @@ const ProductList = () => {
           <div className="flex space-x-4 min-w-[1024px]">
             {
               carts.map((prod, key ) => (
-                <div className="w-1/4 min-w-[320px] bg-white p-5 rounded" key={prod.id}>
+                <div className="individual-product w-1/4 min-w-[220px] lg:min-w-[320px] md:min-w-[320px] bg-white p-5 rounded" key={prod.id}>
                   <Link to={`/products/${prod.id}`} className="block">
                     <img
                       className="object-contain object-center w-full h-48"
@@ -50,9 +50,9 @@ const ProductList = () => {
                       alt={prod.title}
                     />
                   </Link>
-                  <div className="flex flex-col my-4">
+                  <div className="prod-detail flex flex-col my-4">
                     <h3 className="text-gray-600 text-sm h-16 overflow-hidden leading-5">{prod.title}</h3>
-                    <div className='flex justify-between'>
+                    <div className='flex justify-between flex-col md:flex-row lg:flex-row'>
                       <p className="mt-2 font-semibold me-5">₹{prod.price}</p>
 
                       <button className='bg-black text-white duration-350 hover:border-1 hover:border-indigo-600 cursor-pointer rounded h-10 w-40' onClick={() => addToCart(prod, key)}><span>
